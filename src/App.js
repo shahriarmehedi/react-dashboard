@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import DashboardHome from "./pages/Dashboard/DashboardHome";
+import Database from "./pages/Dashboard/Database";
+import Messages from "./pages/Dashboard/Messages";
+import PushNotification from "./pages/Dashboard/PushNotification";
+import SalesReport from "./pages/Dashboard/SalesReport";
+import SignOut from "./pages/Dashboard/SignOut";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin/dashboard" element={<Dashboard />}>
+            <Route path="/admin/dashboard/main" element={<DashboardHome />} />
+            <Route path="/admin/dashboard/database" element={<Database />} />
+            <Route path="/admin/dashboard/sales-report" element={<SalesReport />} />
+            <Route path="/admin/dashboard/messages" element={<Messages />} />
+            <Route path="/admin/dashboard/push-notification" element={<PushNotification />} />
+            <Route path="/admin/dashboard/signout" element={<SignOut />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

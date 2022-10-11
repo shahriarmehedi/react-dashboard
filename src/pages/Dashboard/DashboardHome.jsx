@@ -125,7 +125,7 @@ const DashboardHome = () => {
                 <div className='bg-white rounded-xl p-5 w-5/6 lg:w-full  mx-auto'>
                     <h3 className='py-3 text-xl font-semibold'>Customer Insight</h3>
                     <div className='h-32'>
-
+                        <p className='py-7 text-sm text-gray-400 text-center'>Insight will come after data schema is ready</p>
                     </div>
                 </div>
             </div>

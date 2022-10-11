@@ -34,7 +34,13 @@ const Messages = () => {
                         </select>
                     </div>
                     <div>
-                        <textarea className="textarea textarea-primary  w-[95%] mx-5 mt-7" placeholder="Type your message here...."></textarea>
+                        <textarea rows="7" cols="7" className="textarea textarea-primary  w-[95%] mx-5 mt-7" placeholder="Type your message here...."></textarea>
+                    </div>
+
+                    <div className='flex justify-end mx-7 mt-2'>
+                        <button className='bg-primary px-14 py-3 text-white rounded '>
+                            Send
+                        </button>
                     </div>
                 </div>
             </div>

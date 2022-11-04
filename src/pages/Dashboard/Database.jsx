@@ -1,6 +1,6 @@
 import React from 'react';
 import DashboardNavbar from '../../components/Shared/DashboardNavbar';
-
+import { NavLink } from 'react-router-dom';
 const Database = () => {
 
 
@@ -102,7 +102,10 @@ const Database = () => {
                                             </span>
                                         </td>
                                         <td className='text-center'>
-                                            <button className="px-5 py-1 bg-[#5D5FEF] text-white rounded-md text-sm">Message</button>
+                                            <NavLink to={`/admin/dashboard/usermessage/${item.phone}`}>
+                                                <button className="px-5 py-1 bg-[#5D5FEF] text-white rounded-md text-sm">Message</button>
+                                            </NavLink>
+
 
                                         </td>
                                     </tr>

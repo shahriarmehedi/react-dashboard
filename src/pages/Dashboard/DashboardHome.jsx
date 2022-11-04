@@ -23,7 +23,7 @@ const DashboardHome = () => {
                                 All Customers
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                548
+                                1153
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Overall</p>
                         </div>
@@ -33,7 +33,7 @@ const DashboardHome = () => {
                                 New Customer
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                24
+                                178
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Today</p>
                         </div>
@@ -43,7 +43,7 @@ const DashboardHome = () => {
                                 Reward Issued
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                16
+                                673
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Today</p>
                         </div>
@@ -67,7 +67,7 @@ const DashboardHome = () => {
                             <tbody>
                                 <tr>
                                     <td className='py-3 text-sm'>01</td>
-                                    <td className='py-3 text-sm'>+84-9654-865</td>
+                                    <td className='py-3 text-sm'>01700000000</td>
                                     <td className='py-3 text-sm'>
                                         <progress className="progress progress-error w-20" value="50" max="100"></progress>
                                     </td>
@@ -77,7 +77,7 @@ const DashboardHome = () => {
                                 </tr>
                                 <tr>
                                     <td className='py-3 text-sm'>02</td>
-                                    <td className='py-3 text-sm'>+84-9654-865</td>
+                                    <td className='py-3 text-sm'>01700000001</td>
                                     <td className='py-3 text-sm'>
                                         <progress className="progress progress-error w-20" value="40" max="100"></progress>
                                     </td>
@@ -87,7 +87,7 @@ const DashboardHome = () => {
                                 </tr>
                                 <tr>
                                     <td className='py-3 text-sm'>03</td>
-                                    <td className='py-3 text-sm'>+84-9654-865</td>
+                                    <td className='py-3 text-sm'>01700000002</td>
                                     <td className='py-3 text-sm'>
                                         <progress className="progress progress-error w-20" value="20" max="100"></progress>
                                     </td>
@@ -97,7 +97,7 @@ const DashboardHome = () => {
                                 </tr>
                                 <tr>
                                     <td className='py-3 text-sm'>04</td>
-                                    <td className='py-3 text-sm'>+84-9654-865</td>
+                                    <td className='py-3 text-sm'>01700000003</td>
                                     <td className='py-3 text-sm'>
                                         <progress className="progress progress-error w-20" value="70" max="100"></progress>
                                     </td>

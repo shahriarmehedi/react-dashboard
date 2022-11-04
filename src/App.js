@@ -6,6 +6,7 @@ import Messages from "./pages/Dashboard/Messages";
 import PushNotification from "./pages/Dashboard/PushNotification";
 import SalesReport from "./pages/Dashboard/SalesReport";
 import SignOut from "./pages/Dashboard/SignOut";
+import UserMessage from "./pages/Dashboard/UserMessage";
 import Home from "./pages/Home/Home";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/admin/dashboard/database" element={<Database />} />
             <Route path="/admin/dashboard/sales-report" element={<SalesReport />} />
             <Route path="/admin/dashboard/messages" element={<Messages />} />
+            <Route path="/admin/dashboard/usermessage/:id" element={<UserMessage />} />
             <Route path="/admin/dashboard/push-notification" element={<PushNotification />} />
             <Route path="/admin/dashboard/signout" element={<SignOut />} />
           </Route>

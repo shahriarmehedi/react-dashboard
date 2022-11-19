@@ -3,6 +3,56 @@ import CustomerInsight from '../../components/Dashboard/CustomerInsight';
 import DashboardNavbar from '../../components/Shared/DashboardNavbar';
 
 const DashboardHome = () => {
+
+    // CHECK IF USER IS LOGGED IN
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/';
+    }
+
+    const [storeData, setStoreData] = React.useState({});
+
+    React.useEffect(() => {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/stores`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status) {
+                    setStoreData(data.data)
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }, [])
+
+    // ALL CUSTOMERS
+    const [allCustomers, setAllCustomers] = React.useState([]);
+
+    React.useEffect(() => {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status) {
+                    setAllCustomers(data.data.data)
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }, [])
+
     return (
         <div>
             <DashboardNavbar />
@@ -23,7 +73,7 @@ const DashboardHome = () => {
                                 All Customers
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                1153
+                                {allCustomers.length}
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Overall</p>
                         </div>
@@ -33,7 +83,7 @@ const DashboardHome = () => {
                                 New Customer
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                178
+                                {allCustomers.filter(customer => customer.status === 'new').length}
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Today</p>
                         </div>
@@ -43,7 +93,7 @@ const DashboardHome = () => {
                                 Reward Issued
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                673
+                                {allCustomers.filter(customer => customer.status === 'reward').length}
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Today</p>
                         </div>
@@ -64,48 +114,35 @@ const DashboardHome = () => {
                                     <th className='py-3 text-xs font-thin text-gray-500'>Sales</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td className='py-3 text-sm'>01</td>
-                                    <td className='py-3 text-sm'>01700000000</td>
-                                    <td className='py-3 text-sm'>
-                                        <progress className="progress progress-error w-20" value="50" max="100"></progress>
-                                    </td>
-                                    <td className='py-3 text-sm'>
-                                        <span className="badge badge-accent badge-outline">50%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className='py-3 text-sm'>02</td>
-                                    <td className='py-3 text-sm'>01700000001</td>
-                                    <td className='py-3 text-sm'>
-                                        <progress className="progress progress-error w-20" value="40" max="100"></progress>
-                                    </td>
-                                    <td className='py-3 text-sm'>
-                                        <span className="badge badge-accent badge-outline">40%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className='py-3 text-sm'>03</td>
-                                    <td className='py-3 text-sm'>01700000002</td>
-                                    <td className='py-3 text-sm'>
-                                        <progress className="progress progress-error w-20" value="20" max="100"></progress>
-                                    </td>
-                                    <td className='py-3 text-sm'>
-                                        <span className="badge badge-accent badge-outline">20%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className='py-3 text-sm'>04</td>
-                                    <td className='py-3 text-sm'>01700000003</td>
-                                    <td className='py-3 text-sm'>
-                                        <progress className="progress progress-error w-20" value="70" max="100"></progress>
-                                    </td>
-                                    <td className='py-3 text-sm'>
-                                        <span className="badge badge-accent badge-outline">70%</span>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            {
+                                allCustomers.length > 0 ?
+                                    <tbody>
+                                        {
+                                            allCustomers.map((customer, index) => (
+                                                <tr key={index}>
+                                                    <td className='py-3 text-sm'>{index + 1}</td>
+                                                    <td className='py-3 text-sm'>{customer.phone}</td>
+                                                    <td className='py-3 text-sm'>
+                                                        <progress className="progress progress-error w-20" value={customer.amount_spend / 100} max="100"></progress>
+                                                    </td>
+                                                    <td className='py-3 '>
+                                                        {/* percentage */}
+                                                        <span className='text-sm text-gray-500'>
+                                                            {customer.amount_spend / 100}%
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                    :
+                                    <tbody>
+                                        <tr>
+                                            <td className='py-3 text-xs font-thin text-gray-500'>No Data</td>
+                                        </tr>
+                                    </tbody>
+
+                            }
                         </table>
 
                     </div>

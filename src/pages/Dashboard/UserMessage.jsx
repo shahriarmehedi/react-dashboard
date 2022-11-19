@@ -4,6 +4,12 @@ import DashboardNavbar from '../../components/Shared/DashboardNavbar';
 
 const UserMessage = () => {
 
+    // CHECK IF USER IS LOGGED IN
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/';
+    }
+
     let { id } = useParams();
 
     // message state 

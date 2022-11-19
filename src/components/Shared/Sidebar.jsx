@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+    }
+
+
     return (
         <div className='w-[220px] bg-white h-screen fixed z-50'>
             <div className='mx-5 mt-4 text-gray-500 flex flex-col'>
@@ -39,11 +46,11 @@ const Sidebar = () => {
                         Push Notification
                     </div>
                 </Link>
-                <Link to='/admin/dashboard/signout'>
-                    <div className=' hover:bg-[#5D5FEF] hover:text-white cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'>
-                        Sign Out
-                    </div>
-                </Link>
+
+                <div onClick={handleLogout} className=' hover:bg-[#5D5FEF] hover:text-white cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'>
+                    Sign Out
+                </div>
+
             </div>
 
         </div>

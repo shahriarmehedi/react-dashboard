@@ -3,6 +3,12 @@ import DashboardNavbar from '../../components/Shared/DashboardNavbar';
 
 const Messages = () => {
 
+    // CHECK IF USER IS LOGGED IN
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/';
+    }
+
 
     const [isEveryoneClicked, setIsEveryoneClicked] = React.useState(true);
     const [isSpecificClicked, setIsSpecificClicked] = React.useState(false);

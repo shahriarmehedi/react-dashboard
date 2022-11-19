@@ -1,25 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Login from '../login/Login';
 
 const Home = () => {
+    const navigate = useNavigate();
+    // check if user is logged in
+    const token = localStorage.getItem('token');
+    if (token) {
+        navigate('/admin/dashboard/main');
+    }
+
+
     return (
         <div>
-            <div className='text-center p-32'>
-                <h3>
-                    Welcome to the Home Page
-                </h3>
-
-                <p>
-                    This is the home page of the application.
-                </p>
-
-                <Link to="/admin/dashboard/main">
-                    <button className='px-7 py-3 bg-[#5D5FEF] text-white rounded-md mt-10'>
-                        Go to the Dashboard
-                    </button>
-                </Link>
-            </div>
-
+            <Login />
         </div>
     );
 };

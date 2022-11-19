@@ -3,63 +3,34 @@ import DashboardNavbar from '../../components/Shared/DashboardNavbar';
 import { NavLink } from 'react-router-dom';
 const Database = () => {
 
+    // CHECK IF USER IS LOGGED IN
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/';
+    }
 
-    const data = [
-        {
-            id: 1,
-            phone: '01700000000',
-            AmountSpend: 1000,
-        },
-        {
-            id: 2,
-            phone: '01543434343',
-            AmountSpend: 170,
-        },
-        {
-            id: 3,
-            phone: '01712345678',
-            AmountSpend: 350,
-        },
-        {
-            id: 4,
-            phone: '01700000000',
-            AmountSpend: 1000,
-        },
-        {
-            id: 5,
-            phone: '01543434343',
-            AmountSpend: 170,
-        },
-        {
-            id: 6,
-            phone: '01712345678',
-            AmountSpend: 350,
-        },
-        {
-            id: 7,
-            phone: '01700000000',
-            AmountSpend: 1000,
-        },
-        {
-            id: 8,
-            phone: '01543434343',
-            AmountSpend: 170,
-        },
-        {
-            id: 9,
-            phone: '01712345678',
-            AmountSpend: 350,
-        },
-        {
-            id: 10,
-            phone: '01700000000',
-            AmountSpend: 1000,
-        },
+    const [allCustomers, setAllCustomers] = React.useState([]);
 
-    ]
+    React.useEffect(() => {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status) {
+                    setAllCustomers(data.data.data)
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }, [])
 
-    const [customerData, setCustomerData] = React.useState(data);
-
+    console.log(allCustomers);
 
 
 
@@ -84,7 +55,7 @@ const Database = () => {
                         </thead>
                         <tbody>
                             {
-                                customerData.map((item, index) => (
+                                allCustomers.map((item, index) => (
                                     <tr key={index}>
                                         <td>
                                             <span className="text-gray-500">
@@ -98,7 +69,7 @@ const Database = () => {
                                         </td>
                                         <td className='text-center'>
                                             <span className="text-gray-500">
-                                                ${item.AmountSpend}
+                                                ${item.amount_spend}
                                             </span>
                                         </td>
                                         <td className='text-center'>

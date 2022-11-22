@@ -38,9 +38,16 @@ const Database = () => {
     return (
         <div>
             <DashboardNavbar />
-            <h3 className='p-7  text-xl font-semibold text-gray-700'>
-                All Customers List
-            </h3>
+            <div className='flex justify-between items-center w-5/6 lg:w-full lg:px-7 mx-auto mb-3 mt-5 px-7 py-4'>
+                <h3 className='text-xl font-semibold text-gray-700'>
+                    All Customers List
+                </h3>
+                <NavLink to='/store/1/input' className=''>
+                    <button className='px-10 py-2 bg-[#9715FC] hover:bg-[#6456F0] transition duration-200 text-white rounded-md'>
+                        Add New
+                    </button>
+                </NavLink>
+            </div>
 
             <div className='w-5/6 lg:w-full lg:px-7 mx-auto mb-20'>
                 <div className="overflow-x-auto">

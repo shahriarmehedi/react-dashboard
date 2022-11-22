@@ -8,6 +8,7 @@ import SalesReport from "./pages/Dashboard/SalesReport";
 import SignOut from "./pages/Dashboard/SignOut";
 import UserMessage from "./pages/Dashboard/UserMessage";
 import Home from "./pages/Home/Home";
+import InputInfo from "./pages/InputInfo/InputInfo";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/admin/dashboard/push-notification" element={<PushNotification />} />
             <Route path="/admin/dashboard/signout" element={<SignOut />} />
           </Route>
+          <Route path="/store/:id/input" element={<InputInfo />} />
         </Routes>
       </BrowserRouter>
     </div>

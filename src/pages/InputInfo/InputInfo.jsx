@@ -6,35 +6,40 @@ const InputInfo = () => {
     const navigate = useNavigate();
     let { id } = useParams();
 
+    const token = localStorage.getItem('token');
+
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
         console.log(data)
 
         // send data to server
-        // fetch(`${process.env.REACT_APP_BASE_URL}/api/customers/${id}/create`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         // clear form
-        //         reset();
-        //         navigate('/admin/dashboard/database')
-        //         // update new data
-        //         window.location.reload();
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers/washington-dc/create`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
 
-        //     })
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // clear form
+                reset();
+                navigate('/admin/dashboard/database')
+                // update new data
+                window.location.reload();
 
-        // clear form
-        reset();
-        navigate('/admin/dashboard/database')
-        // update new data
-        window.location.reload();
+            })
+
+        // // clear form
+        // reset();
+        // navigate('/admin/dashboard/database')
+        // // update new data
+        // window.location.reload();
     }
 
     return (

@@ -118,7 +118,7 @@ const DashboardHome = () => {
                                 allCustomers.length > 0 ?
                                     <tbody>
                                         {
-                                            allCustomers.map((customer, index) => (
+                                            allCustomers.slice(0, 4).map((customer, index) => (
                                                 <tr key={index}>
                                                     <td className='py-3 text-sm'>{index + 1}</td>
                                                     <td className='py-3 text-sm'>{customer.phone}</td>

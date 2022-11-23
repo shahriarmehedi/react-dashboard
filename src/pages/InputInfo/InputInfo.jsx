@@ -14,7 +14,7 @@ const InputInfo = () => {
         console.log(data)
 
         // send data to server
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers/washington-dc/create`, {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers/san-marcos/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

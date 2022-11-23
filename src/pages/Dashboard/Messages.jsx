@@ -56,12 +56,12 @@ const Messages = () => {
                             isEveryoneClicked && (null) || isSpecificClicked && (
                                 <select className="select select-primary w-[95%] mx-5 mt-7">
                                     <option value="" >Location</option>
-                                    <option value="" >Washington D.C. - Store</option>
-                                    <option value="" >New York - Store</option>
-                                    <option value="" >California - Store</option>
-                                    <option value="" >Los Angeles  - Store</option>
-                                    <option value="" >Islip - Store</option>
-
+                                    <option value="" >Balboa - Store</option>
+                                    <option value="" >San Marcos - Store</option>
+                                    <option value="" >Hillcrest - Store</option>
+                                    <option value="" >Pacific Beach - Store</option>
+                                    <option value="" >Mira Mesa - Store</option>
+                                    <option value="" >Mission Valley - Store</option>
                                 </select>
                             )
                         }

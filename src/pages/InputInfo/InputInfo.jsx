@@ -47,14 +47,17 @@ const InputInfo = () => {
             <div className='w-5/6 lg:w-1/3  px-10 py-20 mx-auto bg-white rounded-lg'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col mb-5'>
-                        <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor="name">Phone Number</label>
-                        <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="text" placeholder='+896-1245-8536' {...register("phone", { required: true })} />
-                        {errors.name && <span>This field is required</span>}
+                        <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor="phone">
+                            Phone Number <span className='font-thin'>(Australian Format)</span>
+                        </label>
+                        <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="text" pattern="^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{1}( |-){0,1}[0-9]{3}$" placeholder='+61 4 123 456 789' {...register("phone", { required: true })} />
+                        {/* Only accept Australian phone number */}
+                        {errors.phone && <span className='text-red-500 text-xs italic'>Please enter a valid phone number</span>}
                     </div>
                     <div className='flex flex-col'>
-                        <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor="name">Amount Spend</label>
+                        <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor="amound_spend">Amount Spend</label>
                         <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="number" placeholder='$2400' {...register("amount_spend", { required: true })} />
-                        {errors.name && <span>This field is required</span>}
+                        {errors.amount_spend && <span className='text-red-500 text-xs italic'>Please enter a valid amount</span>}
                     </div>
 
                     <div className='flex justify-center'>

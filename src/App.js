@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import Campaign from "./pages/Dashboard/Campaign";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import DashboardHome from "./pages/Dashboard/DashboardHome";
 import Database from "./pages/Dashboard/Database";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/admin/dashboard" element={<Dashboard />}>
             <Route path="/admin/dashboard/main" element={<DashboardHome />} />
             <Route path="/admin/dashboard/database" element={<Database />} />
+            <Route path="/admin/dashboard/campaign" element={<Campaign />} />
             <Route path="/admin/dashboard/sales-report" element={<SalesReport />} />
             <Route path="/admin/dashboard/messages" element={<Messages />} />
             <Route path="/admin/dashboard/usermessage/:id" element={<UserMessage />} />

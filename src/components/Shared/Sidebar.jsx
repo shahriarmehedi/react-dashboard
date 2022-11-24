@@ -36,6 +36,11 @@ const Sidebar = () => {
                         Sales Report
                     </div>
                 </Link>
+                <Link to='/admin/dashboard/campaign'>
+                    <div className=' hover:bg-[#5D5FEF] hover:text-white cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'>
+                        Campaign
+                    </div>
+                </Link>
                 <Link to='/admin/dashboard/messages'>
                     <div className=' hover:bg-[#5D5FEF] hover:text-white cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'>
                         Messages

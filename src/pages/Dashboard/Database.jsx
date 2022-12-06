@@ -57,7 +57,7 @@ const Database = () => {
                                 <th>#</th>
                                 <th className='text-center'>Phone number</th>
                                 <th className='text-center'>Amount spend</th>
-                                <th className='text-center'>Action</th>
+                                {/* <th className='text-center'>Action</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -79,13 +79,13 @@ const Database = () => {
                                                 ${item.amount_spend}
                                             </span>
                                         </td>
-                                        <td className='text-center'>
+                                        {/* <td className='text-center'>
                                             <NavLink to={`/admin/dashboard/usermessage/${item.phone}`}>
                                                 <button className="px-5 py-1 bg-[#5D5FEF] text-white rounded-md text-sm">Message</button>
                                             </NavLink>
 
 
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 ))
                             }

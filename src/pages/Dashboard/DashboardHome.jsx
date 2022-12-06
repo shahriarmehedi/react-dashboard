@@ -110,8 +110,7 @@ const DashboardHome = () => {
                                 <tr>
                                     <th className='py-3 text-xs font-thin text-gray-500'>#</th>
                                     <th className='py-3 text-xs font-thin text-gray-500'>Number</th>
-                                    <th className='py-3 text-xs font-thin text-gray-500'> </th>
-                                    <th className='py-3 text-xs font-thin text-gray-500'>Sales</th>
+
                                 </tr>
                             </thead>
                             {
@@ -122,15 +121,7 @@ const DashboardHome = () => {
                                                 <tr key={index}>
                                                     <td className='py-3 text-sm'>{index + 1}</td>
                                                     <td className='py-3 text-sm'>{customer.phone}</td>
-                                                    <td className='py-3 text-sm'>
-                                                        <progress className="progress progress-error w-20" value={customer.amount_spend / 100} max="100"></progress>
-                                                    </td>
-                                                    <td className='py-3 '>
-                                                        {/* percentage */}
-                                                        <span className='text-sm text-gray-500'>
-                                                            {customer.amount_spend / 100}%
-                                                        </span>
-                                                    </td>
+
                                                 </tr>
                                             ))
                                         }

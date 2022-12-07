@@ -35,20 +35,29 @@ const Campaign = () => {
                 <h3 className='text-xl font-semibold text-gray-700'>
                     Campaign
                 </h3>
-
+                <button className='px-7 py-2 bg-[#5D5FEF] transition duration-200 text-white rounded-md'>
+                    New campaign
+                </button>
             </div>
 
             <div>
                 <Tabs>
                     <TabList className="flex justify-center cursor-pointer rounded-md">
-                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-7 rounded-md py-2">Running</Tab>
-                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-7 rounded-md py-2">Stopped</Tab>
-                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-7 rounded-md py-2">Completed</Tab>
-                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-7 rounded-md py-2">Message</Tab>
+                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-10 rounded-md py-3">Running</Tab>
+                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-10 rounded-md py-3">Stopped</Tab>
+                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-10 rounded-md py-3">Completed</Tab>
+                        <Tab className=" text-gray-700 bg-gray-100 border-none outline-none px-10 rounded-md py-3">Message</Tab>
 
                     </TabList>
 
                     <TabPanel className="m-7">
+                        <div className='flex justify-end mb-2'>
+                            <div>
+                                <h3>
+                                    Sort by: <span className='px-1 cursor-pointer text-blue-500'>Title</span> | <span className='px-1 cursor-pointer text-blue-500'>Date</span>
+                                </h3>
+                            </div>
+                        </div>
                         <div className="overflow-x-auto">
                             <table className="table table-zebra w-full">
 
@@ -144,6 +153,13 @@ const Campaign = () => {
 
 
                     <TabPanel className="m-7">
+                        <div className='flex justify-end mb-2'>
+                            <div>
+                                <h3>
+                                    Sort by: <span className='px-1 cursor-pointer text-blue-500'>Title</span> | <span className='px-1 cursor-pointer text-blue-500'>Date</span>
+                                </h3>
+                            </div>
+                        </div>
                         <div className="overflow-x-auto">
                             <table className="table table-zebra w-full">
 
@@ -238,6 +254,13 @@ const Campaign = () => {
 
 
                     <TabPanel className="m-7">
+                        <div className='flex justify-end mb-2'>
+                            <div>
+                                <h3>
+                                    Sort by: <span className='px-1 cursor-pointer text-blue-500'>Title</span> | <span className='px-1 cursor-pointer text-blue-500'>Date</span>
+                                </h3>
+                            </div>
+                        </div>
                         <div className="overflow-x-auto">
                             <table className="table table-zebra w-full">
 
@@ -331,6 +354,13 @@ const Campaign = () => {
 
 
                     <TabPanel className="m-7">
+                        <div className='flex justify-end mb-2'>
+                            <div>
+                                <h3>
+                                    Sort by: <span className='px-1 cursor-pointer text-blue-500'>Title</span> | <span className='px-1 cursor-pointer text-blue-500'>Date</span>
+                                </h3>
+                            </div>
+                        </div>
                         <div className='lg:px-7 w-5/6 lg:w-full  mb-7'>
                             <div className='bg-white rounded-xl p-5 w-5/6 lg:w-full  mx-auto'>
                                 <div className='flex mt-5'>

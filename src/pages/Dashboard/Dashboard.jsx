@@ -18,7 +18,7 @@ const Dashboard = () => {
                 token && (
                     <>
                         <Sidebar />
-                        <div className='w-full ml-[220px] bg-gray-50 min-h-screen'>
+                        <div className='w-full ml-[250px] bg-gray-50 min-h-screen'>
                             <Outlet />
                         </div>
                     </>

@@ -50,8 +50,9 @@ const Login = () => {
                         timerProgressBar: true,
                         showConfirmButton: false
                     })
-                    // save token in local storage
+                    // save token in local storage and expire time is 6 hours
                     localStorage.setItem('token', data.data.access_token)
+                    localStorage.setItem('expire', jwt_decode(data.data.access_token).exp)
 
 
                     // redirect to home page

@@ -14,13 +14,12 @@ const InputInfo = () => {
         console.log(data)
 
         // send data to server
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers/san-marcos/create`, {
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/customers/${id}/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${token}`
-
             },
             body: JSON.stringify(data)
         })

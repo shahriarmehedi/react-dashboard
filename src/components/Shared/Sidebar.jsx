@@ -45,7 +45,7 @@ const Sidebar = () => {
                             :
                             'hover:bg-gray-200 cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'
                     }>
-                        <i class="bi bi-speedometer2 pr-2"></i> Dashboard
+                        <i className="bi bi-speedometer2 pr-2"></i> Dashboard
                     </div>
                 </Link>
                 <Link to='/admin/dashboard/database'>
@@ -55,7 +55,7 @@ const Sidebar = () => {
                             :
                             'hover:bg-gray-200 cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'
                     }>
-                        <i class="bi bi-bar-chart pr-2"></i> Database
+                        <i className="bi bi-bar-chart pr-2"></i> Database
                     </div>
                 </Link>
                 <Link to='/admin/dashboard/sales-report'>
@@ -65,7 +65,7 @@ const Sidebar = () => {
                             :
                             'hover:bg-gray-200 cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'
                     }>
-                        <i class="bi bi-flag pr-2"></i> Sales Report
+                        <i className="bi bi-flag pr-2"></i> Sales Report
                     </div>
                 </Link>
                 <Link to='/admin/dashboard/campaign'>
@@ -75,7 +75,7 @@ const Sidebar = () => {
                             :
                             'hover:bg-gray-200 cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'
                     }>
-                        <i class="bi bi-megaphone pr-2"></i> Campaign
+                        <i className="bi bi-megaphone pr-2"></i> Campaign
                     </div>
                 </Link>
                 {/* <Link to='/admin/dashboard/messages'>
@@ -90,12 +90,12 @@ const Sidebar = () => {
                             :
                             'hover:bg-gray-200 cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'
                     }>
-                        <i class="bi bi-bell pr-2"></i> Push Notification
+                        <i className="bi bi-bell pr-2"></i> Push Notification
                     </div>
                 </Link>
 
                 <div onClick={handleLogout} className=' hover:bg-red-500 hover:text-white cursor-pointer transition duration-200 px-7 py-3 mb-1 rounded-md'>
-                    <i class="bi bi-box-arrow-right pr-2"></i> Sign Out
+                    <i className="bi bi-box-arrow-right pr-2"></i> Sign Out
                 </div>
 
             </div>

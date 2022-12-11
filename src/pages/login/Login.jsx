@@ -24,7 +24,7 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
         setLoading(true);
-        console.log(data)
+        // console.log(data)
 
         // send data to server
         fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/login`, {
@@ -37,11 +37,29 @@ const Login = () => {
             .then(res => res.json())
             .then(data => {
                 setLoading(false);
-                console.log(data)
+                // console.log(data)
                 // clear form
                 reset();
 
                 if (data.status) {
+
+                    // save token in local storage and expire time is 6 hours
+                    localStorage.setItem('token', data.data.access_token);
+                    localStorage.setItem('expire', Date.now() + 6 * 60 * 60 * 1000);
+
+                    // if token is expired redirect to login page
+                    const newtoken = localStorage.getItem('token');
+                    const decoded = jwt_decode(newtoken);
+                    // console.log(decoded);
+                    const currentTime = Date.now() / 1000;
+                    if (decoded.exp < currentTime) {
+                        localStorage.removeItem('token');
+                        navigate('/');
+                    }
+
+                    // redirect to home page
+                    navigate('/admin/dashboard/main')
+                    // window.location.reload();
                     Swal.fire({
                         icon: 'success',
                         title: 'Login Successful',
@@ -50,14 +68,6 @@ const Login = () => {
                         timerProgressBar: true,
                         showConfirmButton: false
                     })
-                    // save token in local storage and expire time is 6 hours
-                    localStorage.setItem('token', data.data.access_token)
-                    localStorage.setItem('expire', jwt_decode(data.data.access_token).exp)
-
-
-                    // redirect to home page
-                    navigate('/admin/dashboard/main')
-                    window.location.reload();
                 } else {
                     Swal.fire({
                         icon: 'error',

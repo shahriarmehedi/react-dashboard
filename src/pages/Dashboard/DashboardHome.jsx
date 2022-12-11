@@ -24,6 +24,7 @@ const DashboardHome = () => {
             .then(data => {
                 if (data.status) {
                     setStoreData(data.data)
+                    console.log(storeData);
                 }
             })
             .catch((error) => {
@@ -33,6 +34,7 @@ const DashboardHome = () => {
 
     // ALL CUSTOMERS
     const [allCustomers, setAllCustomers] = React.useState([]);
+    console.log(allCustomers);
 
     React.useEffect(() => {
         fetch(`${process.env.REACT_APP_BASE_URL}/api/customers`, {
@@ -83,7 +85,10 @@ const DashboardHome = () => {
                                 New Customer
                             </h3>
                             <h2 className='text-2xl pb-1 font-bold'>
-                                {allCustomers.filter(customer => customer.status === 'new').length}
+                                {
+                                    // filter with todays date and get the length
+                                    allCustomers?.filter(customer => customer.create_at.slice(0, 10) === new Date().toISOString().slice(0, 10)).length
+                                }
                             </h2>
                             <p className='text-[#5D5FEF] text-xs'>Today</p>
                         </div>

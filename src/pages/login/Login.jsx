@@ -43,18 +43,17 @@ const Login = () => {
 
                 if (data.status) {
 
-                    // save token in local storage and expire time is 6 hours
+                    // save token in local storage
                     localStorage.setItem('token', data.data.access_token);
-                    localStorage.setItem('expire', Date.now() + 6 * 60 * 60 * 1000);
 
-                    // if token is expired redirect to login page
-                    const newtoken = localStorage.getItem('token');
-                    const decoded = jwt_decode(newtoken);
-                    // console.log(decoded);
-                    const currentTime = Date.now() / 1000;
-                    if (decoded.exp < currentTime) {
+                    // set expiration time 0f 6 hours for token
+                    localStorage.setItem('tokenExpiration', Date.now() + 6 * 60 * 60 * 1000)
+
+                    // if token is expired, redirect to login page
+                    if (Date.now() > localStorage.getItem('tokenExpiration')) {
                         localStorage.removeItem('token');
-                        navigate('/');
+                        localStorage.removeItem('tokenExpiration');
+                        navigate('/login')
                     }
 
                     // redirect to home page

@@ -1,16 +1,20 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 const InputInfo = () => {
 
     const navigate = useNavigate();
     let { id } = useParams();
+
+    // loading state 
+    const [loading, setLoading] = React.useState(false);
 
     const token = localStorage.getItem('token');
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
+        setLoading(true);
         console.log(data)
 
         // send data to server
@@ -25,12 +29,13 @@ const InputInfo = () => {
         })
             .then(res => res.json())
             .then(data => {
+                setLoading(false);
                 console.log(data)
                 // clear form
                 reset();
-                navigate('/admin/dashboard/database')
+                navigate(`/thankyou/${id}`)
                 // update new data
-                window.location.reload();
+                // window.location.reload();
 
             })
 
@@ -42,7 +47,15 @@ const InputInfo = () => {
     }
 
     return (
-        <div className='bg-gradient-to-r from-[#6456F0] to-[#9715FC] py-28 min-h-screen'>
+        <div className='bg-gradient-to-r from-[#6456F0] to-[#9715FC] pb-28 pt-5 min-h-screen'>
+            <div className='flex justify-end mr-10 mb-10'>
+                <NavLink to="/">
+                    <button className='bg-white text-[#9715FC] px-7 py-2 rounded-md'>
+                        Login
+                    </button>
+                </NavLink>
+
+            </div>
             <div className='w-5/6 lg:w-1/3  px-10 py-20 mx-auto bg-white rounded-lg'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col mb-5'>
@@ -60,9 +73,14 @@ const InputInfo = () => {
                     </div>
 
                     <div className='flex justify-center'>
-                        <button type='submit' className='px-10 py-2 bg-[#9715FC] hover:bg-[#6456F0] transition duration-200 text-white rounded-md mt-10'>
-                            Submit
-                        </button>
+                        {
+                            loading ? <button className='bg-[#9715FC] text-white px-7 py-2 rounded-md mt-5' type="button" disabled>
+                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Submitting...
+                            </button> : <button className='bg-[#9715FC] text-white px-7 py-2 rounded-md mt-5' type="submit">
+                                Submit
+                            </button>
+                        }
                     </div>
 
 

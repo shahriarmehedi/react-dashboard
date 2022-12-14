@@ -10,6 +10,7 @@ import SignOut from "./pages/Dashboard/SignOut";
 import UserMessage from "./pages/Dashboard/UserMessage";
 import Home from "./pages/Home/Home";
 import InputInfo from "./pages/InputInfo/InputInfo";
+import ThankYouPage from "./pages/InputInfo/ThankYouPage";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/admin/dashboard/signout" element={<SignOut />} />
           </Route>
           <Route path="/store/:id/input" element={<InputInfo />} />
+          <Route path="/thankyou/:id" element={<ThankYouPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,6 +11,7 @@ import UserMessage from "./pages/Dashboard/UserMessage";
 import Home from "./pages/Home/Home";
 import InputInfo from "./pages/InputInfo/InputInfo";
 import ThankYouPage from "./pages/InputInfo/ThankYouPage";
+import Scan from "./pages/Scan/Scan";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           </Route>
           <Route path="/store/:id/input" element={<InputInfo />} />
           <Route path="/thankyou/:id" element={<ThankYouPage />} />
+          <Route path="/scan" element={<Scan />} />
         </Routes>
       </BrowserRouter>
     </div>

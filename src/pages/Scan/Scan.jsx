@@ -31,11 +31,11 @@ const Scan = () => {
 
     return (
         <div className='bg-gradient-to-r from-[#6456F0] to-[#9715FC] py-28 min-h-screen'>
-            <div className='w-5/6 lg:w-1/3  px-10 py-20 mx-auto bg-white rounded-lg  text-center'>
+            <div className='w-5/6 lg:w-1/3  px-10 py-20 mx-auto bg-[#F7F7F7] rounded-lg  text-center'>
                 {
                     !scanner && (
                         <div>
-                            <img className='w-[200px] mx-auto ' src="https://www.nicepng.com/png/detail/216-2167957_icon-welcome-icon.png" alt="" />
+                            <img className='w-[150px] mx-auto ' src="/img/scan.jpeg" alt="" />
                             <h4 className='text-2xl font-bold py-5'>
                                 Welcome to the shop
                             </h4>
